@@ -1,12 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" Condition="Exists('local.props')">
+    <Import Project="local.props" />
+  </ImportGroup>
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup>
+    <PreLinkEventUseInBuild>
+    </PreLinkEventUseInBuild>
+  </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
+      <PreprocessorDefinitions>HAVE_TYPE_TRAITS;_WIN64;_CRT_SECURE_NO_WARNINGS;__WIN32__;WIN32;NDEBUG;_CONSOLE;WXUSINGDLL;__WXMSW__;_APS_SERVICE_;wxUSE_GUI=0;wxUSE_BASE=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level4</WarningLevel>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+      <ConformanceMode>false</ConformanceMode>
+      <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>shlwapi.lib;psapi.lib;ws2_32.lib;wsock32.lib;rpcrt4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions> /ignore:4099 %(AdditionalOptions)</AdditionalOptions>
+      <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
+    </Link>
+    <PreLinkEvent>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+    <PreLinkEvent>
+      <Message />
+    </PreLinkEvent>
+    <PostBuildEvent />
+    <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup />
 </Project>
