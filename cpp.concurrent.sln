@@ -8,6 +8,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hello_world", "hello_world\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "parallel_stl", "parallel_stl\parallel_stl.vcxproj", "{0E254B1D-ECEC-40CA-B716-47A0A6513BC8}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "share_container", "share_container\share_container.vcxproj", "{53C3309A-5EE3-43D6-9CDA-5CF955D13008}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -22,6 +24,10 @@ Global
 		{0E254B1D-ECEC-40CA-B716-47A0A6513BC8}.Debug|x64.Build.0 = Debug|x64
 		{0E254B1D-ECEC-40CA-B716-47A0A6513BC8}.Release|x64.ActiveCfg = Release|x64
 		{0E254B1D-ECEC-40CA-B716-47A0A6513BC8}.Release|x64.Build.0 = Release|x64
+		{53C3309A-5EE3-43D6-9CDA-5CF955D13008}.Debug|x64.ActiveCfg = Debug|x64
+		{53C3309A-5EE3-43D6-9CDA-5CF955D13008}.Debug|x64.Build.0 = Debug|x64
+		{53C3309A-5EE3-43D6-9CDA-5CF955D13008}.Release|x64.ActiveCfg = Release|x64
+		{53C3309A-5EE3-43D6-9CDA-5CF955D13008}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
