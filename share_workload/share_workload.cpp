@@ -64,7 +64,7 @@ void WorkloadContainer::doTheWorkInThread()
   while(idx >= 0 && idx < endIdx)
   {
     ostringstream os;
-    os << tid << "/" << cnt;
+    os << tid << "/" << ++cnt;
     auto thisTurn = os.str();
 
     const auto& itemToDo = m_itemsToDo[idx];
