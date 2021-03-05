@@ -8,7 +8,12 @@
 #include <set>
 #include <optional>
 
+#include "Logger.h"
+
 using namespace std;
+
+//#define OUT cout
+#define OUT Logger()
 
 class WorkloadContainer
 {
@@ -50,7 +55,7 @@ int WorkloadContainer::getNextToDo()
 void WorkloadContainer::doTheWorkInThread()
 {
   auto tid = this_thread::get_id();
-  cout << "start_of_thread=" << tid << endl;
+  OUT << "start_of_thread=" << tid << endl;
 
   int cnt = 0;
   size_t endIdx = m_itemsToDo.size();
@@ -63,12 +68,12 @@ void WorkloadContainer::doTheWorkInThread()
     auto thisTurn = os.str();
 
     const auto& itemToDo = m_itemsToDo[idx];
-    cout << thisTurn << " ... " << itemToDo << " - done by " << thisTurn << endl;
+    OUT << thisTurn << " ... " << itemToDo << " - done by " << thisTurn << endl;
     
     idx = getNextToDo();
   }
 
-  cout << "termination_of_thread=" << tid << endl;
+  OUT << "termination_of_thread=" << tid << endl;
 }
 
 void WorkloadContainer::doTheWorkOverall()
