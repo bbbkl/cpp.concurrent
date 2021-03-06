@@ -24,7 +24,7 @@ class WorkloadContainer
 {
 public:
   void doTheWorkOverall();
-  void prepareTheWork();
+  void prepareTheWork(int workItemCount);
   void showWhatToDo() const;
   int getNextToDo();
   void doTheWorkInThread();
@@ -41,9 +41,9 @@ void WorkloadContainer::showWhatToDo() const
   cout << "\n\n";
 }
 
-void WorkloadContainer::prepareTheWork()
+void WorkloadContainer::prepareTheWork(int workItemCount)
 {
-  for(int i = 0; i < 43; ++i)
+  for(int i = 0; i < workItemCount; ++i)
   {
     ostringstream os;
     os << "workload_" << i;
@@ -78,12 +78,13 @@ void WorkloadContainer::doTheWorkInThread()
     idx = getNextToDo();
   }
 
-  OUT << "termination_of_thread=" << tid << endl;
+  OUT << "termination_of_thread=" << tid << " count=" << cnt << endl;
 }
 
 void WorkloadContainer::doTheWorkOverall()
 {
-  prepareTheWork();
+  int workItemCount = 42;
+  prepareTheWork(workItemCount);
   showWhatToDo();
 
 #if 1
