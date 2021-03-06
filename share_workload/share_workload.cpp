@@ -12,8 +12,13 @@
 
 using namespace std;
 
-//#define OUT cout
+#if 1
 #define OUT Logger()
+#else
+#define OUT cout
+#endif
+
+
 
 class WorkloadContainer
 {
@@ -25,7 +30,7 @@ public:
   void doTheWorkInThread();
 
   vector<string> m_itemsToDo;
-  int m_nextItemIdx = -1;
+  atomic<int> m_nextItemIdx = -1;
 };
 
 void WorkloadContainer::showWhatToDo() const
@@ -49,7 +54,7 @@ void WorkloadContainer::prepareTheWork()
 
 int WorkloadContainer::getNextToDo()
 {
-  return ++m_nextItemIdx;
+  return m_nextItemIdx++;
 }
 
 void WorkloadContainer::doTheWorkInThread()
