@@ -9,8 +9,6 @@ using namespace std;
 
 static mutex g_mtx;
 
-static ostream* g_stream = nullptr;
-
 struct Logger::Impl : public basic_streambuf<char>
 {
   Impl()
@@ -27,12 +25,7 @@ struct Logger::Impl : public basic_streambuf<char>
   void handleMessage(const string& message)
   {
     unique_lock<mutex> lock(g_mtx);
-    if (g_stream != nullptr)
-    {
-      *g_stream << message << "\n\n" << std::flush;
-    }
-
-    cerr << message << "\n\n" << std::flush;
+    cerr << message << std::flush;
   }
 
   int sync() override
@@ -72,9 +65,4 @@ Logger::~Logger()
 {
   m_pimpl->sync();
   delete m_pimpl;
-}
-
-void Logger::addStream(ostream* p_stream)
-{
-  g_stream = p_stream;
 }

@@ -8,8 +8,6 @@ public:
   Logger();
   ~Logger();
 
-  static void addStream(std::ostream* p_stream);
-
 private:
   struct Impl;
   Impl* m_pimpl;
