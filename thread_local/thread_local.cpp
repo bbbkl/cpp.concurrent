@@ -12,7 +12,7 @@
 
 using namespace std;
 
-#if 0
+#if 1
 #define ENDL "\n"
 #else
 #define ENDL endl
