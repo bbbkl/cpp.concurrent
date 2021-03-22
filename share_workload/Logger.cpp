@@ -25,7 +25,7 @@ struct Logger::Impl : public basic_streambuf<char>
   void handleMessage(const string& message)
   {
     unique_lock<mutex> lock(g_mtx);
-    cerr << message << std::flush;
+    cerr << this_thread::get_id() << "|" << message << std::flush;
   }
 
   int sync() override
